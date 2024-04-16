@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Word::class], version = 22)
+@Database(entities = [Word::class], version = 23)
 //specifies the entities it manages and the database version.
 abstract class WordRoomDatabase : RoomDatabase() {
 

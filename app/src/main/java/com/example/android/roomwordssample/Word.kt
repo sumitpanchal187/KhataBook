@@ -12,5 +12,6 @@ data class Word(@PrimaryKey(autoGenerate = true)
                 @ColumnInfo(name = "word") val word: String ,
                 @ColumnInfo(name = "category") val category:String ,
                 @ColumnInfo(name = "note") val note: String,
+                @ColumnInfo(name = "img") val img: Int,
                 val activityType: ActivityType
 )

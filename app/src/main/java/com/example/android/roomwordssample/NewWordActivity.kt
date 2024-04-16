@@ -46,7 +46,7 @@ class NewWordActivity : AppCompatActivity() {
         editAmount = findViewById(R.id.enterAmountedit)
         editDate = findViewById(R.id.date)
         editCat = findViewById(R.id.Categoryaddinc)
-        val newDrawable = resources.getDrawable(R.drawable.img)
+        val newDrawable = resources.getDrawable(R.drawable.img_18)
 
         changeDrawableLeft(editCat, newDrawable, 52,52)
 
@@ -93,6 +93,7 @@ class NewWordActivity : AppCompatActivity() {
         const val EXTRA_REPLY_ADDRESS = "REPLY_ADDRESS"
         const val EXTRA_REPLY_ID = "REPLY_ID"
         const val EXTRA_REPLY_EMP_ID = "REPLY_EMP_ID"
+        const val EXTRA_REPLY_IMG = "REPLY_EMP_IMG"
     }
 
     private fun showDatePickerin() {

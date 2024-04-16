@@ -54,7 +54,7 @@ class UpdateExpenseActivity : AppCompatActivity() {
         editDate = findViewById(R.id.UpdateExDate)
         editCat = findViewById(R.id.UpdateexCategory)
 
-        val newDrawable = resources.getDrawable(R.drawable.img_11)
+        val newDrawable = resources.getDrawable(R.drawable.img_18)
 
         changeDrawableLeft(editCat, newDrawable, 52,52)
         editNote = findViewById(R.id.updateExNote)

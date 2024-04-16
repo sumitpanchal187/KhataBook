@@ -113,6 +113,7 @@ class MainActivity : AppCompatActivity() {
                     category = intentData.getStringExtra(NewWordActivity.EXTRA_REPLY_categ).orEmpty(),
                     date = intentData.getStringExtra(NewWordActivity.EXTRA_REPLY_EMP_ID).orEmpty(),
                     note = intentData.getStringExtra(NewWordActivity.EXTRA_REPLY_ADDRESS).orEmpty(),
+                    img = intentData.getIntExtra(NewWordActivity.EXTRA_REPLY_IMG,0),
                     activityType = activityType
                 )
 

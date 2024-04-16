@@ -54,7 +54,7 @@ class UpdateIncomeActivity : AppCompatActivity() {
         editAmount = findViewById(R.id.UpdateIncomeAmount)
         editDate = findViewById(R.id.UpdateInDate)
         editCat = findViewById(R.id.UpdateIncCategory)
-        val newDrawable = resources.getDrawable(R.drawable.img_11)
+        val newDrawable = resources.getDrawable(R.drawable.img_18)
 
         changeDrawableLeft(editCat, newDrawable, 52,52)
         editNote = findViewById(R.id.updateInNote)

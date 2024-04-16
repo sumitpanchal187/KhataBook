@@ -53,7 +53,7 @@ class addNewExpense : AppCompatActivity() {
         editCat.setOnClickListener{
             showBottomSheetDialog()
         }
-        val newDrawable = resources.getDrawable(R.drawable.img)
+        val newDrawable = resources.getDrawable(R.drawable.img_18)
 
         changeDrawableLeft(editCat, newDrawable, 52,52)
 
