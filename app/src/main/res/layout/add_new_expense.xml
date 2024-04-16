@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Expense"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Spinner
+            android:id="@+id/dateSpinnerex"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_margin="@dimen/big_padding"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_bg"
+            android:entries="@array/currency_options"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:spinnerMode="dropdown" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/exenterAmount"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/big_padding"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Amount">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/exenterAmountedit"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:maxLength="5"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/addexenterDatelay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/big_padding"
+        android:layout_height="wrap_content"
+        android:hint="Date">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/addexdate"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+  <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/enterCatelay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/big_padding"
+        android:layout_height="wrap_content"
+        android:hint="Category">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exCategoryadd"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:clickable="false"
+            android:drawableLeft="@drawable/img_2"
+            android:drawablePadding="12dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exenterNotelay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/big_padding"
+        android:layout_height="wrap_content"
+
+        android:hint="Note">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exNote"
+            android:paddingBottom="50dp"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:maxLength="100"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/ExButton_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:text="SAVE"
+        android:textSize="17dp"
+        android:layout_margin="@dimen/big_padding"
+        />
+    <EditText
+        android:id="@+id/exEnterId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/min_height"
+        android:fontFamily="sans-serif-light"
+        android:hint="Enter Id Number"
+        android:inputType="number"
+        android:visibility="gone"
+        android:layout_margin="@dimen/big_padding"
+        android:textSize="18sp" />
+</LinearLayout>

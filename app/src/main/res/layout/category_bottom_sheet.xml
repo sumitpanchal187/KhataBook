@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:orientation="vertical"
+        android:layout_margin="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/selectCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="25dp"
+            android:text="Select Category"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+        <ImageView
+            android:id="@+id/CatBills"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/img_6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectCat"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/CatBillsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/CatBills"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/CatBills"
+            android:layout_marginLeft="15dp"
+            android:text="Deposit"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/CatBills"
+            app:layout_constraintStart_toStartOf="@+id/CatBills"
+            app:layout_constraintTop_toBottomOf="@id/CatBills"
+            tools:ignore="MissingConstraints" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+        <ImageView
+            android:id="@+id/communicationImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/img_7"
+            app:layout_constraintStart_toEndOf="@+id/CatBills"
+            app:layout_constraintTop_toTopOf="@+id/CatBills"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/communicationTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/CatBills"
+            android:layout_toRightOf="@id/CatBills"
+            android:text="Salary"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/communicationImg"
+            app:layout_constraintTop_toBottomOf="@id/CatBills"
+            tools:ignore="MissingConstraints" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+        <ImageView
+            android:id="@+id/imvestImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/img_8"
+            app:layout_constraintStart_toEndOf="@+id/CatBills"
+            app:layout_constraintTop_toTopOf="@+id/CatBills"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/investTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Investment\nReturn"
+            android:gravity="center"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/communicationImg"
+            app:layout_constraintTop_toBottomOf="@id/CatBills"
+            tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

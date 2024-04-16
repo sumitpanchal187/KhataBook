@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Income"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="20dp"
+        android:gravity="center"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Spinner
+            android:id="@+id/dateSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_margin="@dimen/big_padding"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_bg"
+            android:entries="@array/currency_options"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:spinnerMode="dropdown" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/enterAmount"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/big_padding"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Amount">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enterAmountedit"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:maxLength="5"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/enterDatelay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:onClick="showDatePickerin"
+        android:layout_margin="@dimen/big_padding"
+        android:layout_height="wrap_content"
+        android:hint="Date">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:onClick="showDatePicker"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:inputType="text"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/enterCatelay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/big_padding"
+        android:layout_height="wrap_content"
+        android:hint="Category">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Categoryaddinc"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:drawablePadding="12dp"
+            android:clickable="false"
+            android:drawableLeft="@drawable/img_3"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/enterNotelay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/big_padding"
+        android:layout_height="wrap_content"
+
+        android:hint="Note">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Note"
+            android:paddingBottom="50dp"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:maxLength="100"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/EnterId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/min_height"
+        android:fontFamily="sans-serif-light"
+        android:hint="Enter Id Number"
+        android:inputType="number"
+        android:visibility="gone"
+        android:layout_margin="@dimen/big_padding"
+        android:textSize="18sp" />
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="SAVE"
+        android:textSize="17dp"
+        android:layout_margin="@dimen/big_padding"
+        />
+
+
+</LinearLayout>

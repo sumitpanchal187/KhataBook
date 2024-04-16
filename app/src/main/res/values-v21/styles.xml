@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DatePickerIncome" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#517111</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/NegativeButton</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/NegativeButton</item>
+    </style>
+
+    <style name="DatePickerExp" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@android:color/holo_red_dark</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/redButton</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/redButton</item>
+    </style>
+</resources>
