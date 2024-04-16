@@ -61,7 +61,6 @@ class NewWordActivity : AppCompatActivity() {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editCat.text) ||
                 TextUtils.isEmpty(editAmount.text) ||
-                TextUtils.isEmpty(editNote.text) ||
                 TextUtils.isEmpty(editDate.text)
             ) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
@@ -82,6 +81,7 @@ class NewWordActivity : AppCompatActivity() {
 
                 setResult(Activity.RESULT_OK, replyIntent)
             }
+            Toast.makeText(this,"Fill all Details",Toast.LENGTH_LONG).show()
             finish()
 //            bottomSheetDialog.dismiss()
         }

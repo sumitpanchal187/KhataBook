@@ -12,11 +12,30 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:gravity="center"
-        android:text="Khata"
-        android:textSize="28dp"
+        android:text="@string/titile"
+        android:textSize="28sp"
         android:layout_marginTop="15dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp" />
+
+    <TextView
+        android:id="@+id/totalIncome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Total Income"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp" />
+    <TextView
+        android:id="@+id/totalExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Total Expense"
+        app:layout_constraintTop_toBottomOf="@+id/totalIncome"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="20dp" />
 
@@ -28,7 +47,7 @@
         android:layout_marginTop="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/totalExpense" />
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

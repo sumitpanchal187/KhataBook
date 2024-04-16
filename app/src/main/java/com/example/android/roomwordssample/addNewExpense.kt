@@ -62,7 +62,6 @@ class addNewExpense : AppCompatActivity() {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(editCat.text) ||
                 TextUtils.isEmpty(editAmount.text) ||
-                TextUtils.isEmpty(editNote.text) ||
                 TextUtils.isEmpty(editDate.text)
             ) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)

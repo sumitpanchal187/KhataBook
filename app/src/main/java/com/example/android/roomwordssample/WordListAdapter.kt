@@ -11,13 +11,16 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import java.util.concurrent.Flow
 
 class WordListAdapter(
     private val onItemClick: (Word) -> Unit
 ) : ListAdapter<Word, WordListAdapter.WordViewHolder>(WORDS_COMPARATOR) {
+    private var totalIncome: Int = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recyclerview_item, parent, false)
@@ -28,6 +31,7 @@ class WordListAdapter(
         val current = getItem(position)
         holder.bind(current, onItemClick)
     }
+
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val wordItemView: TextView = itemView.findViewById(R.id.priceId)
@@ -48,13 +52,55 @@ class WordListAdapter(
             idTextView.text = "${word.id}"
             empidTextView.text = "${word.date}"
 
-            val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img)
-            imageView.setImageDrawable(drawable)
+            if (ageTextView.text=="Salary"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_7)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Deposit"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_6)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Investment Return"||ageTextView.text=="Debt Payment"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_8)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Bills"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_12)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Communication"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_13)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Dining Out"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_9)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Education"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_10)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Health"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_11)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Food"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_14)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Transport"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_15)
+                imageView.setImageDrawable(drawable)
+            }
+            if (ageTextView.text=="Gifts"){
+                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_16)
+                imageView.setImageDrawable(drawable)
+            }
 
             val textColor = if (word.activityType == ActivityType.ADD_EXPENSE) {
                 Color.RED
             } else {
-                Color.GREEN
+                Color.rgb(0,164,0)
             }
             wordItemView.setTextColor(textColor)
             itemView.setOnClickListener { onItemClick(word) }
@@ -74,3 +120,4 @@ class WordListAdapter(
         }
     }
 }
+

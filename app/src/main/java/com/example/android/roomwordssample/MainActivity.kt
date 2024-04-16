@@ -4,19 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
-import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 enum class ActivityType {
     ADD_EXPENSE,
@@ -30,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private val UpdateNewIncomeRequestCode = 3
     private val UpdateNewEXRequestCode = 4
     private val drawable = 5
+    private lateinit var totalIncometext :TextView
     private val wordViewModel: WordViewModel by viewModels {
         WordViewModelFactory((application as WordsApplication).repository)
     }
@@ -38,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
+
+        totalIncometext= findViewById(R.id.totalIncome)
+//        totalIncometext.text = "Total Income: ₹ $totalIncome"
 
         recyclerView = findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -67,24 +68,20 @@ class MainActivity : AppCompatActivity() {
 
 
         recyclerView.adapter = adapter
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomnavigationview)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.Khtaa -> {
-                    // Handle Khata item click
+                R.id.Khataa -> {
                     true
                 }
                 R.id.addd -> {
-                    // Show bottom sheet dialog
                     showBottomSheetDialog()
                     true
                 }
                 else -> false
             }
         }.also {
-            // Ensure "Khata" item is selected initially
-            val khataMenuItem = bottomNavigationView.menu.findItem(R.id.Khtaa)
+            val khataMenuItem = bottomNavigationView.menu.findItem(R.id.Khataa)
             khataMenuItem?.isChecked = true
         }
 
@@ -142,6 +139,10 @@ class MainActivity : AppCompatActivity() {
             bottomSheetDialog.dismiss()
         }
 
+        bottomSheetDialog.setOnDismissListener {
+            val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomnavigationview)
+            bottomNavigationView.selectedItemId = R.id.Khataa
+        }
         bottomSheetDialog.show()
     }
     private fun generateDrawableList(context: Context, size: Int): List<Drawable?> {
