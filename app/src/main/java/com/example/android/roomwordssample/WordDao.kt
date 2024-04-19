@@ -12,8 +12,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface WordDao {
 
-    @Query("SELECT * FROM word_table")
-
+//    @Query("SELECT * FROM word_table ORDER BY date DESC")
+    @Query("SELECT * FROM word_table ORDER BY DATE(SUBSTR(date, 7) || '-' || SUBSTR(date, 4, 2) || '-' || SUBSTR(date, 1, 2)) DESC")
     fun getAlphabetizedWords(): Flow<List<Word>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

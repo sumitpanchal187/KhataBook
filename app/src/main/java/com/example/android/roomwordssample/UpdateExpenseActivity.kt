@@ -2,6 +2,7 @@ package com.example.android.roomwordssample
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.Bitmap
@@ -106,16 +107,63 @@ class UpdateExpenseActivity : AppCompatActivity() {
             }
             finish()
         }
+
+        if (existingCate=="Bills"){
+            val newDrawable = resources.getDrawable(R.drawable.img_12)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else if (existingCate=="Communication"){
+            val newDrawable = resources.getDrawable(R.drawable.img_13)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else if (existingCate=="Debt Payment"){
+            val newDrawable = resources.getDrawable(R.drawable.img_19)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else if (existingCate=="Dining Out"){
+            val newDrawable = resources.getDrawable(R.drawable.img_9)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else if (existingCate=="Education"){
+            val newDrawable = resources.getDrawable(R.drawable.img_10)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else if (existingCate=="Health"){
+            val newDrawable = resources.getDrawable(R.drawable.img_11)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else if (existingCate=="Food"){
+            val newDrawable = resources.getDrawable(R.drawable.img_14)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else if (existingCate=="Transport"){
+            val newDrawable = resources.getDrawable(R.drawable.img_15)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
+        else{
+            val newDrawable = resources.getDrawable(R.drawable.img_16)
+            changeDrawableLeft(editCat, newDrawable, 52,52)
+        }
     }
 
     @SuppressLint("SuspiciousIndentation")
     private fun deleteIncome() {
-        val updatedWord = editAmount.text.toString()
-
-        wordViewModel.deleteWord(updatedWord)
-        startActivity(Intent(this, MainActivity::class.java))
-        finish()
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Delete Expense")
+        alertDialogBuilder.setMessage("Are you sure you want to delete this data Expense?")
+        alertDialogBuilder.setPositiveButton("Yes") { dialog, which ->
+            val updatedWord = editAmount.text.toString()
+            wordViewModel.deleteWord(updatedWord)
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+        alertDialogBuilder.setNegativeButton("No") { dialog, which ->
+           Toast.makeText(this,"Not deleted",Toast.LENGTH_SHORT).show()
+        }
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
+
 
 
     private fun updateDatePicker() {

@@ -65,18 +65,18 @@ class NewWordActivity : AppCompatActivity() {
             ) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
-                val word = editAmount.text.toString()
+                val amount = editAmount.text.toString()
                 val categ = editCat.text.toString()
                 val id = editid.text.toString().toIntOrNull()
-                val empid = editDate.text.toString()
-                val address = editNote.text.toString()
+                val date = editDate.text.toString()
+                val note = editNote.text.toString()
                 val  image = newDrawable
 
-                replyIntent.putExtra(EXTRA_REPLY_WORD, word)
+                replyIntent.putExtra(EXTRA_REPLY_WORD, amount)
                 replyIntent.putExtra(EXTRA_REPLY_categ, categ)
                 replyIntent.putExtra(EXTRA_REPLY_ID, id)
-                replyIntent.putExtra(EXTRA_REPLY_ADDRESS, address)
-                replyIntent.putExtra(EXTRA_REPLY_EMP_ID, empid)
+                replyIntent.putExtra(EXTRA_REPLY_ADDRESS, note)
+                replyIntent.putExtra(EXTRA_REPLY_EMP_ID, date)
 //                replyIntent.putExtra("pic", newDrawable)
 
                 setResult(Activity.RESULT_OK, replyIntent)

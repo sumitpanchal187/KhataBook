@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="currency_options">
-        <item>₹\t Inr</item>
+        <item>₹\t INR</item>
+        <item>$\t USD</item>
     </string-array>
 </resources>

@@ -1,9 +1,13 @@
 package com.example.android.roomwordssample
+import android.app.ActionBar
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
+import android.view.Gravity
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -36,9 +40,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar!!.hide()
-
-        totalIncometext= findViewById(R.id.totalIncome)
-//        totalIncometext.text = "Total Income: ₹ $totalIncome"
+//        val actionBar = supportActionBar
+        /*val params = ActionBar.LayoutParams(
+            ActionBar.LayoutParams.WRAP_CONTENT,
+            ActionBar.LayoutParams.MATCH_PARENT
+        )
+        params.gravity = Gravity.CENTER*/
+//        actionBar?.setDisplayHomeAsUpEnabled(true)
+//        actionBar?.setDisplayShowHomeEnabled(true)
+        actionBar?.setTitle("Kharch Khata")
 
         recyclerView = findViewById(R.id.recyclerview)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -65,7 +75,8 @@ class MainActivity : AppCompatActivity() {
 
             }
         )
-
+        val totalIncome = adapter.getTotalIncome()
+        println("Total Income: $totalIncome")
 
         recyclerView.adapter = adapter
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomnavigationview)

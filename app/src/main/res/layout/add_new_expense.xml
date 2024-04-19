@@ -28,8 +28,6 @@
             android:layout_weight="1"
             android:background="@drawable/spinner_bg"
             android:entries="@array/currency_options"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
             android:spinnerMode="dropdown" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/exenterAmount"

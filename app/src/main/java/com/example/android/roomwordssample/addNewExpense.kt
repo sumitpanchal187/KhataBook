@@ -154,7 +154,7 @@ class addNewExpense : AppCompatActivity() {
             val drawable = (view.findViewById<ImageView>(R.id.enterImage) as ImageView).drawable
             val scaledDrawable = resizeDrawable(drawable, 22,22)
             editCat.setCompoundDrawablesWithIntrinsicBounds(scaledDrawable, null, null, null)
-            editCat.setText("Entertainment")
+            editCat.setText("Health")
             bottomSheetDialog?.dismiss()
         }
         view.findViewById<View>(R.id.tarvel)?.setOnClickListener {

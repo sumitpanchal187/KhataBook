@@ -29,9 +29,28 @@ class WordListAdapter(
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
         val current = getItem(position)
-        holder.bind(current, onItemClick)
+        val previous = if (position > 0) getItem(position - 1) else null
+        val next = if (position < itemCount - 1) getItem(position + 1) else null
+
+        holder.bind(current, previous,next, onItemClick)
+        val wordAsInt = current.word.toIntOrNull()
+        if (wordAsInt == null) {
+            println("Error parsing ${current.word} to Int")
+        } else {
+            totalIncome += wordAsInt
+        }
+
+        if (next != null && current.date == next.date) {
+            holder.setDividerVisibility(View.VISIBLE)
+        } else {
+            holder.setDividerVisibility(View.GONE)
+        }
     }
 
+
+    fun getTotalIncome(): Int {
+        return totalIncome
+    }
 
     class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val wordItemView: TextView = itemView.findViewById(R.id.priceId)
@@ -40,11 +59,14 @@ class WordListAdapter(
         private val idTextView: TextView = itemView.findViewById(R.id.mainId)
         private val empidTextView: TextView = itemView.findViewById(R.id.dateId)
         private val imageView: ImageView = itemView.findViewById(R.id.imageview)
+        private val dividerView: View = itemView.findViewById(R.id.divider)
 
         fun bind(
             word: Word,
+            previousWord: Word?,
+            nextWord: Word?,
             onItemClick: (Word) -> Unit
-            // Receive item click listener
+
         ) {
             wordItemView.text = "₹ ${word.word}"
             ageTextView.text = "${word.category}"
@@ -52,50 +74,30 @@ class WordListAdapter(
             idTextView.text = "${word.id}"
             empidTextView.text = "${word.date}"
 
-            if (ageTextView.text=="Salary"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_7)
-                imageView.setImageDrawable(drawable)
+            if (previousWord != null && previousWord.date == word.date) {
+                empidTextView.visibility = View.GONE
+            } else {
+                empidTextView.visibility = View.VISIBLE
             }
-            if (ageTextView.text=="Deposit"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_6)
-                imageView.setImageDrawable(drawable)
+
+
+            val drawableId = when (ageTextView.text) {
+                "Salary" -> R.drawable.img_7
+                "Deposit" -> R.drawable.img_6
+                "Investment Return" -> R.drawable.img_8
+                 "Debt Payment" -> R.drawable.img_19
+                "Bills" -> R.drawable.img_12
+                "Communication" -> R.drawable.img_13
+                "Dining Out" -> R.drawable.img_9
+                "Education" -> R.drawable.img_10
+                "Health" -> R.drawable.img_11
+                "Food" -> R.drawable.img_14
+                "Transport" -> R.drawable.img_15
+                "Gifts" -> R.drawable.img_16
+                else -> R.drawable.img
             }
-            if (ageTextView.text=="Investment Return"||ageTextView.text=="Debt Payment"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_8)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Bills"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_12)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Communication"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_13)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Dining Out"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_9)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Education"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_10)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Health"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_11)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Food"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_14)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Transport"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_15)
-                imageView.setImageDrawable(drawable)
-            }
-            if (ageTextView.text=="Gifts"){
-                val drawable = ContextCompat.getDrawable(itemView.context, R.drawable.img_16)
-                imageView.setImageDrawable(drawable)
-            }
+            val drawable = ContextCompat.getDrawable(itemView.context, drawableId)
+            imageView.setImageDrawable(drawable)
 
             val textColor = if (word.activityType == ActivityType.ADD_EXPENSE) {
                 Color.RED
@@ -104,6 +106,10 @@ class WordListAdapter(
             }
             wordItemView.setTextColor(textColor)
             itemView.setOnClickListener { onItemClick(word) }
+        }
+
+        fun setDividerVisibility(visibility: Int) {
+            dividerView.visibility = visibility
         }
     }
 
@@ -119,5 +125,7 @@ class WordListAdapter(
             }
         }
     }
+
+
 }
 

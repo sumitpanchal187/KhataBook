@@ -6,20 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:gravity="center"
+        android:textColor="#000000"
         android:text="@string/titile"
-        android:textSize="28sp"
+        android:textSize="25sp"
         android:layout_marginTop="15dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="20dp" />
 
+    <!--
     <TextView
         android:id="@+id/totalIncome"
         android:layout_width="match_parent"
@@ -38,13 +41,13 @@
         app:layout_constraintTop_toBottomOf="@+id/totalIncome"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="20dp" />
-
+-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="700dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="15dp"
+        android:paddingBottom="37dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalExpense" />

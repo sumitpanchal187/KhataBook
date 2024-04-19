@@ -2,6 +2,7 @@ package com.example.android.roomwordssample
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.Intent
 import android.graphics.Bitmap
@@ -109,7 +110,18 @@ class UpdateIncomeActivity : AppCompatActivity() {
             deleteIncome()
         }
 
-
+        if (existingCate=="Deposit"){
+            val newDrawable = resources.getDrawable(R.drawable.img_6)
+            changeDrawableLeft(editCat, newDrawable, 58,58)
+        }
+        else if (existingCate=="Salary"){
+            val newDrawable = resources.getDrawable(R.drawable.img_7)
+            changeDrawableLeft(editCat, newDrawable, 58,58)
+        }
+        else{
+            val newDrawable = resources.getDrawable(R.drawable.img_8)
+            changeDrawableLeft(editCat, newDrawable, 58,58)
+        }
     }
     private fun setupSaveButton() {
         saveBtn.setOnClickListener {
@@ -136,14 +148,21 @@ class UpdateIncomeActivity : AppCompatActivity() {
 
     @SuppressLint("SuspiciousIndentation")
     private fun deleteIncome() {
-        val updatedWord = editAmount.text.toString()
-
+        val ad = AlertDialog.Builder(this)
+        ad.setTitle("Delete Income")
+        ad.setMessage("Are you sure you want to delete this Income?")
+        ad.setPositiveButton("Yes") { _, _ ->
+            val updatedWord = editAmount.text.toString()
             wordViewModel.deleteWord(updatedWord)
-            Log.d("DeleteIncome", "Word deleted") // Add this line for logging
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        }
+        ad.setNegativeButton("Not Deleted") { _, _ ->
+            Toast.makeText(this,"No",Toast.LENGTH_SHORT).show()
+        }
+        val alertDialog = ad.create()
+        alertDialog.show()
     }
-
 
 
 
